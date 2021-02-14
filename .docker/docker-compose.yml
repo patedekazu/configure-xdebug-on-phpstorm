@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  nginx:
+    container_name: nginx
+    build: ./nginx
+    volumes:
+      - ../src:/var/www/html
+    ports:
+      - "80:80"
+    depends_on:
+      - php
+    tty: true
+
+  php:
+    container_name: php
+    build: ./php
+    volumes:
+      - ../src:/var/www/html
+    ports:
+      - "9000:9000"
+    tty: true
