@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 $l = [];
 for ($i = 0; $i < 100; ++$i) {
@@ -7,6 +8,11 @@ for ($i = 0; $i < 100; ++$i) {
 
 $s = "Hello, Xdebug!";
 
-var_dump($l);
+function repeatString(string $str, int $num): string
+{
+    return str_repeat($str, $num);
+}
+
+$repeated = repeatString("hello", 10);
 
 phpinfo();
